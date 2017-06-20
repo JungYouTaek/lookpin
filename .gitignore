@@ -78,4 +78,6 @@ fabric.properties
 # *.ipr
 
 # Sonarlint plugin
-.idea/sonarlint
+.idea/sonarlint/public/packs
+/public/packs-test
+/node_modules
