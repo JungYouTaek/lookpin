@@ -1,5 +1,7 @@
 {
   "app.js": "http://0.0.0.0:8080/packs/app.js",
   "application.js": "http://0.0.0.0:8080/packs/application.js",
+  "components/List.js": "http://0.0.0.0:8080/packs/components/List.js",
+  "components/Navbar.js": "http://0.0.0.0:8080/packs/components/Navbar.js",
   "hello_vue.js": "http://0.0.0.0:8080/packs/hello_vue.js"
 }
