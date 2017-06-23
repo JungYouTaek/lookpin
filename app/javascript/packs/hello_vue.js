@@ -36,5 +36,5 @@ console.log(app)
 //       message: "Can you say hello?"
 //     },
 //     components: { App }
-//   })
+//   })ㅇㅇㅇ
 // })
