@@ -15,6 +15,8 @@
         <p>{{ list.name }}</p>
         <p><strong>{{ list.price }}원</strong></p>
         <hr />
+        <p v-if="list.check==0" @click="list.check++" class="pin"><img src="assets/pin.png" alt="pin-image" key="unclick"/>핀하기</p>
+        <p v-else @click="list.check--" class="pin"><img src="assets/pin-clicked.png" alt="pin-clicked-image" key="click"/>핀하기</p>
       </article>
     </section>
   </main>
@@ -25,12 +27,12 @@
     data: function () {
       return {
         lists: [
-          { name: "챠르르 타올 단가라 반팔티", price: 16000, img: "assets/1.jpg", sell: 102, id: 1 },
-          { name: "5부 스테이 호일 반팔티", price: 13700, img: "assets/2.jpg", sell: 120, id: 2 },
-          { name: "5부 이슈 보트넥 잔단가라 반팔티", price: 17000, img: "assets/3.jpg", sell: 84, id: 3 },
-          { name: "5부 에세이 보트넥 단가라 반팔티", price: 8900, img: "assets/4.jpg", sell: 20, id: 4 },
-          { name: "7부 엠보 반반콤비 티", price: 9900, img: "assets/5.jpg", sell: 196, id: 5 },
-          { name: "프렌즈타올 단가라 반팔티", price: 16900, img: "assets/6.jpg", sell: 35, id: 6 }
+          { name: "챠르르 타올 단가라 반팔티", price: 16000, img: "assets/1.jpg", sell: 102, id: 1, check: 0 },
+          { name: "5부 스테이 호일 반팔티", price: 13700, img: "assets/2.jpg", sell: 120, id: 2, check: 0 },
+          { name: "5부 이슈 보트넥 잔단가라 반팔티", price: 17000, img: "assets/3.jpg", sell: 84, id: 3, check: 0 },
+          { name: "5부 에세이 보트넥 단가라 반팔티", price: 8900, img: "assets/4.jpg", sell: 20, id: 4, check: 0 },
+          { name: "7부 엠보 반반콤비 티", price: 9900, img: "assets/5.jpg", sell: 196, id: 5, check: 0 },
+          { name: "프렌즈타올 단가라 반팔티", price: 16900, img: "assets/6.jpg", sell: 35, id: 6, check: 0}
         ],
         query: ''
       }
@@ -103,7 +105,7 @@
   article {
     display: inline-block;
     width: 220px;
-    height:400px;
+    height:430px;
     margin: 1.5%;
     background-color: white;
     text-align: center;
@@ -117,5 +119,11 @@
     max-width: 220px;
     height: 30px;
     margin: 0 auto;
+  }
+  .pin {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

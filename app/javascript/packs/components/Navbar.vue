@@ -3,8 +3,8 @@
     <h1><img src="assets/lookpin.png" alt="lookpin"></h1>
     <h2><a href="/">바이슬림</a></h2>
     <div class="star">
-      <img v-if="check == true" @click="check = !check" src="assets/star.png" alt="star">
-      <img v-else @click="check = !check" src="assets/star-clicked.png" alt="star">
+      <img v-if="check == true" key="unclick" @click="check = !check" src="assets/star.png" alt="star">
+      <img v-else key="click" @click="check = !check" src="assets/star-clicked.png" alt="star">
     </div>
   </nav>
 </template>
