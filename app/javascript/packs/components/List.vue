@@ -103,9 +103,15 @@
   }
   hr {
     margin: 0;
+    border: 1px solid #f5f5f5;
   }
   .product {
     padding-left: 10%;
+  }
+  @media (max-width: 504px) {
+    .product {
+      padding-left: 21%;
+    }
   }
   article {
     display: inline-block;
