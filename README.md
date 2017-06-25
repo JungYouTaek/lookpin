@@ -1,24 +1,36 @@
-# README
+# Lookpin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Create Project
+```
+rails new lookpin --webpack=vue
+```
 
-Things you may want to cover:
+## setting
 
-* Ruby version
+```
+#index.html.erb
+<%= javascript_pack_tag 'hello_vue' %>
+```
 
-* System dependencies
+```
+# ./Procfile
+web: bundle exec puma -p $PORT
 
-* Configuration
+# ./Procfile.dev
+web: bundle exec rails s
+# watcher: ./bin/webpack-watcher
+hot: ./bin/webpack-dev-server
 
-* Database creation
+# ./bin/server
 
-* Database initialization
+#!/bin/bash -i
+bundle install
+bundle exec foreman start -f Procfile.dev
 
-* How to run the test suite
+# chmod 777 ./bin/server
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Gemfile
+group :development do
+  gem 'foreman'
+end
+```
