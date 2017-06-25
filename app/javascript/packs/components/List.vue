@@ -13,7 +13,7 @@
       <article v-for="list in search" :key="list.id">
         <img :src="list.img" class="product-image" alt="product-image" />
         <p>{{ list.name }}</p>
-        <p><strong>{{ list.price }}원</strong></p>
+        <p><strong>{{ list.price | number}}원</strong></p>
         <hr />
         <p v-if="list.check==0" @click="list.check++" class="pin"><img src="assets/pin.png" alt="pin-image" key="unclick"/>핀하기</p>
         <p v-else @click="list.check--" class="pin"><img src="assets/pin-clicked.png" alt="pin-clicked-image" key="click"/>핀하기</p>
@@ -58,6 +58,11 @@
         return this.lists.filter(function (list) {
           return list.name.includes(query)
         })
+      }
+    },
+    filters: {
+      number: function(value) {
+        return new Intl.NumberFormat().format(value)
       }
     }
   }
