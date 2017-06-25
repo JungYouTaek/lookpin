@@ -3,8 +3,8 @@
     <h1><img src="assets/lookpin.png" alt="lookpin"></h1>
     <h2><a href="/">바이슬림</a></h2>
     <div class="star">
-      <img v-if="counter == true" @click="counter = !counter" src="assets/star.png" alt="star">
-      <img v-else @click="counter = !counter" src="assets/star-clicked.png" alt="star">
+      <img v-if="check == true" @click="check = !check" src="assets/star.png" alt="star">
+      <img v-else @click="check = !check" src="assets/star-clicked.png" alt="star">
     </div>
   </nav>
 </template>
@@ -13,7 +13,7 @@
 export default {
   data: function () {
     return {
-      counter: true
+      check: true
     }
   }
 }

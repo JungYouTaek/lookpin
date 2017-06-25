@@ -10,7 +10,7 @@
     </section>
     <hr />
     <section class="product">
-      <article v-for="list in search">
+      <article v-for="list in search" :key="list.id">
         <img :src="list.img" class="product-image" alt="product-image" />
         <p>{{ list.name }}</p>
         <p><strong>{{ list.price }}원</strong></p>
@@ -32,8 +32,7 @@
           { name: "7부 엠보 반반콤비 티", price: 9900, img: "assets/5.jpg", sell: 196, id: 5 },
           { name: "프렌즈타올 단가라 반팔티", price: 16900, img: "assets/6.jpg", sell: 35, id: 6 }
         ],
-        query: '',
-        counter: true
+        query: ''
       }
     },
     computed: {
@@ -84,6 +83,7 @@
   .sort li a {
     text-decoration: none;
     display: block;
+    color: black;
   }
   .sort input {
     width: 100px;
