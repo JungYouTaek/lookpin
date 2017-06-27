@@ -9,14 +9,17 @@
       <input v-model="query" placeholder="상품검색"/>
     </section>
     <hr />
+    <button v-if="edit == false"type="button" name="button" @click="edit = true">편집</button>
+    <button v-else type="button" name="button" @click="remove(star)">삭제</button>
     <section class="product">
-      <article v-for="list in search" :key="list.id">
+      <article v-for="(list, index) in search" :key="list.id">
         <img :src="list.img" class="product-image" alt="product-image" />
         <p>{{ list.name }}</p>
         <p><strong>{{ list.price | number}}원</strong></p>
         <hr />
         <p v-if="list.check==0" @click="list.check++" class="pin"><img src="assets/pin.png" alt="pin-image" key="unclick"/>핀하기</p>
         <p v-else @click="list.check--" class="pin"><img src="assets/pin-clicked.png" alt="pin-clicked-image" key="click"/>핀하기</p>
+        <input v-if="edit == true" type="checkbox" name="" :value="index" v-model="star">
       </article>
     </section>
   </main>
@@ -32,9 +35,22 @@
           { name: "5부 이슈 보트넥 잔단가라 반팔티", price: 17000, img: "assets/3.jpg", sell: 84, id: 3, check: 0 },
           { name: "5부 에세이 보트넥 단가라 반팔티", price: 8900, img: "assets/4.jpg", sell: 20, id: 4, check: 0 },
           { name: "7부 엠보 반반콤비 티", price: 9900, img: "assets/5.jpg", sell: 196, id: 5, check: 0 },
-          { name: "프렌즈타올 단가라 반팔티", price: 16900, img: "assets/6.jpg", sell: 35, id: 6, check: 0}
+          { name: "프렌즈타올 단가라 반팔티", price: 16900, img: "assets/6.jpg", sell: 35, id: 6, check: 0 }
         ],
-        query: ''
+        query: '',
+        edit: false,
+        star: []
+      }
+    },
+    methods: {
+      remove: function (arr) {
+        console.log(this.star)
+        this.edit = false
+        this.star.sort(function(a,b) { return a-b })
+        for (var i = 0; i < arr.length; i++) {
+          this.lists.splice(arr[i]-i,1)
+        }
+        this.star = []
       }
     },
     computed: {
