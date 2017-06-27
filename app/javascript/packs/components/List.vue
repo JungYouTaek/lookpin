@@ -12,14 +12,13 @@
     <button v-if="edit == false"type="button" name="button" @click="edit = true">편집</button>
     <button v-else type="button" name="button" @click="remove(star)">삭제</button>
     <section class="product">
-      <article v-for="(list, index) in search" :key="list.id">
+      <article v-for="(list, index) in search" :key="list.id" :value="index" @click="star.push(index)">
         <img :src="list.img" class="product-image" alt="product-image" />
         <p>{{ list.name }}</p>
         <p><strong>{{ list.price | number}}원</strong></p>
         <hr />
         <p v-if="list.check==0" @click="list.check++" class="pin"><img src="assets/pin.png" alt="pin-image" key="unclick"/>핀하기</p>
         <p v-else @click="list.check--" class="pin"><img src="assets/pin-clicked.png" alt="pin-clicked-image" key="click"/>핀하기</p>
-        <input v-if="edit == true" type="checkbox" name="" :value="index" v-model="star">
       </article>
     </section>
   </main>
