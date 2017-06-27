@@ -43,10 +43,12 @@
     },
     methods: {
       add: function (index) {
-        if ( this.star.includes(index) ) {
-          this.star.splice(this.star.indexOf(index),1)
-        } else {
-          this.star.push(index)
+        if ( this.edit == true ) {
+          if ( this.star.includes(index) ) {
+            this.star.splice(this.star.indexOf(index),1)
+          } else {
+            this.star.push(index)
+          }
         }
       },
       remove: function (arr) {
