@@ -12,7 +12,7 @@
     <button v-if="edit == false"type="button" name="button" @click="edit = true">편집</button>
     <button v-else type="button" name="button" @click="remove(star)">삭제</button>
     <section class="product">
-      <article v-for="(list, index) in search" :key="list.id" :value="index" @click="star.push(index)">
+      <article v-for="(list, index) in search" :key="list.id" :value="index" @click="add(index)">
         <img :src="list.img" class="product-image" alt="product-image" />
         <p>{{ list.name }}</p>
         <p><strong>{{ list.price | number}}원</strong></p>
@@ -42,10 +42,17 @@
       }
     },
     methods: {
+      add: function (index) {
+        if ( this.star.includes(index) ) {
+          this.star.splice(this.star.indexOf(index),1)
+        } else {
+          this.star.push(index)
+        }
+      },
       remove: function (arr) {
         console.log(this.star)
         this.edit = false
-        this.star.sort(function(a,b) { return a-b })
+        this.star.sort()
         for (var i = 0; i < arr.length; i++) {
           this.lists.splice(arr[i]-i,1)
         }
